@@ -3,6 +3,13 @@ const client = new Discord.Client();
 const config = require('config');
 const botToken = config.get('botToken');
 const {yodaNutGif, yodaGifs, randomItem, palpGifs,aniGifs} = require("./gifs")
+
+const express = require('express')
+const app = express()
+ 
+app.get('/', function (req, res) {
+  res.send('Hope u like memes')
+})
  
 client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
@@ -45,3 +52,4 @@ else return;
 });
 
 client.login(botToken);
+app.listen(3000);
