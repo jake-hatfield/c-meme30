@@ -8,7 +8,7 @@ const express = require('express')
 const app = express()
  
 app.get('/', function (req, res) {
-  res.send('Hope u like memes')
+  res.send('Hope u like memes: https://discordapp.com/oauth2/authorize?&client_id=641348914343051282&scope=bot&permissions=66078976')
 })
  
 client.on('ready', () => {
