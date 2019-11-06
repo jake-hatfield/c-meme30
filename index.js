@@ -46,8 +46,9 @@ if (msg.content.includes("anakin") || (msg.content.includes("ani"))){
     reply = "https://tenor.com/view/mesa-back-jar-jar-binks-star-wars-funny-the-phantom-gif-14345561"
 }else if (msg.content.includes("hello") || msg.content.includes("hey") || msg.content == ("hi")){
     reply = "https://tenor.com/view/star-wars-jarjar-binks-hello-boyos-hi-gif-11857957"
-}else if (msg.content.includes("bot msg delete")){
-    msg.delete(1000);
+}else if (msg.content == ("message delete")){
+    msg.delete(2000);
+    msg.reply ("message deleted").then(delete_msg => {delete_msg.delete(2000); });
 }
 else return;
       console.log(reply)
