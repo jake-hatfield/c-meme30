@@ -14,7 +14,8 @@ app.get('/', function (req, res) {
 client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
 });
- 
+
+//gif response to keywords
 client.on('message', msg => {
     if (msg.author == client.user)
     return;
@@ -51,5 +52,14 @@ else return;
   msg.reply(reply);
 });
 
+//logs the bot into discord
 client.login(botToken);
+
+//provides the bot a port
 app.listen(process.env.PORT || 5000)
+
+//pings the server every 5 minutes to keep the bot awake
+var https = require("https");
+setInterval(function() {
+    https.get("https://star-wars-meme-droid.herokuapp.com/");
+}, 300000); 
