@@ -47,7 +47,7 @@ if (msg.content.includes("anakin") || (msg.content.includes("ani"))){
 }else if (msg.content.includes("hello") || msg.content.includes("hey") || msg.content == ("hi")){
     reply = "https://tenor.com/view/star-wars-jarjar-binks-hello-boyos-hi-gif-11857957"
 }else if (msg.content.includes("bot msg delete")){
-    message.delete(1000);
+    msg.delete(1000);
 }
 else return;
       console.log(reply)
