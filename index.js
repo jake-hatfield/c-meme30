@@ -5,10 +5,24 @@ const botToken = config.get('botToken');
 const {yodaNutGif, yodaGifs, randomItem, palpGifs,aniGifs} = require("./gifs")
 const express = require('express')
 const app = express()
+const ffmpeg = require('ffmpeg');
  
 app.get('/', function (req, res) {
   res.send('Hope u like memes: https://discordapp.com/oauth2/authorize?&client_id=641348914343051282&scope=bot&permissions=66078976')
 })
+
+try {
+	new ffmpeg('C:\Users\jacob\Downloads\dixie-horn_daniel-simion.mp3', function (err, horn) {
+		if (!err) {
+			console.log('its working, its working');
+		} else {
+			console.log('Error: ' + err);
+		}
+	});
+} catch (e) {
+	console.log(e.code);
+	console.log(e.msg);
+}
  
 client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
@@ -45,10 +59,16 @@ if (msg.content.includes("anakin") || (msg.content.includes("ani"))){
     reply = "https://tenor.com/view/mesa-back-jar-jar-binks-star-wars-funny-the-phantom-gif-14345561"
 }else if (msg.content.includes("hello") || msg.content.includes("hey") || msg.content == ("hi")){
     reply = "https://tenor.com/view/star-wars-jarjar-binks-hello-boyos-hi-gif-11857957"
-}
-else return;
-      console.log(reply)
-  msg.reply(reply);
+}else if (msg.content == "psb") {
+    var VC = msg.member.voiceChannel; 
+    if (!VC)
+        return msg.reply("give me the prompt, master jedi")
+VC.join()
+    .then(connection => {
+        const dispatcher = connection.playFile(horn);
+        dispatcher.on("end", end => {VC.leave()});
+})
+};
 });
 
 //logs the bot into discord
@@ -61,4 +81,4 @@ app.listen(process.env.PORT || 5000)
 var https = require("https");
 setInterval(function() {
     https.get("https://star-wars-meme-droid.herokuapp.com/");
-}, 300000); 
+}, 300000);
