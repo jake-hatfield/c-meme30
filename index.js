@@ -69,12 +69,13 @@ client.on("message", msg => {
   } else if (msgLowercase.includes("sand")) {
     reply =
       "https://tenor.com/view/anakin-sand-skywalker-anakin-skywalker-star-wars-gif-13723718";
+  } else if (msgLowercase.includes("order")) {
+    reply = "https://youtu.be/VnOPf2v_Hyo";
   } else if (
     msgLowercase.includes("mace") ||
     msg.msgLowercase.includes("windu")
   ) {
-    reply =
-      "https://youtu.be/JNGH-LYEBMo?t=2";
+    reply = "https://youtu.be/JNGH-LYEBMo?t=2";
   } else if (msgLowercase.includes("work")) {
     reply = "https://tenor.com/view/working-anakin-starwars-gif-4653092";
   } else if (msgLowercase.includes("landing")) {
