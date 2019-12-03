@@ -73,7 +73,7 @@ client.on("message", msg => {
     reply = "https://youtu.be/VnOPf2v_Hyo";
   } else if (
     msgLowercase.includes("mace") ||
-    msg.msgLowercase.includes("windu")
+    msgLowercase.includes("windu")
   ) {
     reply = "https://youtu.be/JNGH-LYEBMo?t=2";
   } else if (msgLowercase.includes("work")) {
