@@ -18,16 +18,13 @@
     "url": "https://github.com/jacobhatfield/whiteknights/issues"
   },
   "homepage": "https://github.com/jacobhatfield/whiteknights#readme",
-  "keywords": [
-    "Saas Tweets",
-    "tech company tweet generator"
-  ],
   "dependencies": {
     "axios": "^0.19.0",
     "config": "^3.2.4",
     "discord.js": "^11.5.1",
     "express": "^4.17.1",
-    "ffmpeg": "0.0.4"
+    "ffmpeg": "0.0.4",
+    "opusscript": "0.0.7"
   },
   "devDependencies": {
     "nodemon": "^1.19.4"
