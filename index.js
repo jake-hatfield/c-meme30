@@ -1,7 +1,6 @@
 const Discord = require("discord.js");
 const client = new Discord.Client();
-const config = require("config");
-const botToken = config.get("botToken");
+const { token, prefix } = require("./config/default.json");
 const express = require("express");
 const app = express();
 const { content } = require("./content");
@@ -25,48 +24,70 @@ client.on("message", msg => {
       obj.keyword === msg.content.toLowerCase() ||
       msg.content.toLowerCase().includes(obj.keyword)
   );
-  const randomNoRepeats = mediaType => {
-    let copyArray = [...mediaType];
-    return function() {
-      if (copyArray.length < 1) {
-        copyArray = category.slice(0);
-      }
-      let index = Math.floor(Math.random() * copyArray.length);
-      let item = copyArray[index];
-      copyArray.splice(index, 1);
-      return item;
+  if (isReady && match[0] === undefined) {
+    return;
+  } else {
+    const noRepeats = category => {
+      let copyArray = [...category];
+      return function() {
+        if (copyArray.length < 1) {
+          copyArray = category.slice(0);
+        }
+        let index = Math.floor(Math.random() * copyArray.length);
+        let item = copyArray[index];
+        copyArray.splice(index, 1);
+        return item;
+      };
     };
-  };
 
-  let voiceLineChooser = randomNoRepeats(match.voiceLine);
-  let gifChooser = randomNoRepeats(match.gif);
-  let reply = "";
+    let gifChooser = noRepeats(match[0].gif);
+    let voiceLineChooser = noRepeats(match[0].voiceLine);
 
-  if (isReady && match !== null) {
-    if (match.voiceLine === "null") {
-      reply = gifChooser();
-    } else {
-      isReady = false;
-      let voiceChannel = msg.member.voice.channel;
-      voiceChannel
-        .join()
-        .then(connection => {
-          const dispatcher = connection.play(voiceLineChooser());
-          dispatcher.on("end", end => {
-            setTimeout(function() {
-              voiceChannel.leave();
-            }, 500);
-            isReady = true;
-          });
-        })
-        .catch(err => console.log(err));
+    if (isReady) {
+      let reply = "";
+      if (
+        voiceLineChooser() === null ||
+        msg.content.toLowerCase().includes("gif") === true
+      ) {
+        reply = gifChooser();
+        console.log(reply);
+        msg.reply(reply);
+        if (reply !== "") return;
+        return;
+      } else {
+        let voiceChannel = msg.member.voiceChannel;
+        if (voiceChannel === undefined && match[0]) {
+          reply =
+            "I don't know where you get your delusions, laserbrain... join the voice channel.";
+          msg.reply(reply);
+          if (reply !== "") return;
+          return;
+        } else {
+          isReady = false;
+          voiceChannel
+            .join()
+            .then(connection => {
+              const dispatcher = connection.playFile(voiceLineChooser());
+              // console.log(voiceLineChooser());
+              dispatcher.on("end", end => {
+                isReady = true;
+              });
+            })
+            .catch(err => console.log(err));
+        }
+      }
     }
   }
-  if (reply !== "") return msg.reply(reply);
 });
 
 //logs the bot into discord
-client.login(botToken);
+client.login(token);
 
 //provides the bot a port
 app.listen(process.env.PORT || 5000);
+
+// if (msg.content.toLowerCase().includes("!stop")) {
+// setTimeout(function() {
+//   voiceChannel.leave();
+// }, 500);
+// isReady = true;
