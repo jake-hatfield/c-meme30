@@ -24,6 +24,8 @@ client.on("message", msg => {
       obj.keyword === msg.content.toLowerCase() ||
       msg.content.toLowerCase().includes(obj.keyword)
   );
+  console.log(match[0]);
+
   if (isReady && match[0] === undefined) {
     return;
   } else {
@@ -58,7 +60,7 @@ client.on("message", msg => {
         let voiceChannel = msg.member.voiceChannel;
         if (voiceChannel === undefined && match[0]) {
           reply =
-            "I don't know where you get your delusions, laserbrain... join the voice channel.";
+            "Perhaps the archives are incomplete: If you want a voice line, you should try joining the voice channel. If you want a gif, add 'gif' to your message.";
           msg.reply(reply);
           if (reply !== "") return;
           return;
@@ -68,7 +70,6 @@ client.on("message", msg => {
             .join()
             .then(connection => {
               const dispatcher = connection.playFile(voiceLineChooser());
-              // console.log(voiceLineChooser());
               dispatcher.on("end", end => {
                 isReady = true;
               });
