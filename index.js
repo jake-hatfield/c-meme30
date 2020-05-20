@@ -57,7 +57,7 @@ client.on("message", (msg) => {
         return;
       } else {
         let voiceChannel = msg.member.voice.channel;
-        if (voiceChannel === undefined && match[0]) {
+        if (voiceChannel === null && match[0]) {
           reply =
             "Perhaps the archives are incomplete: If you want a voice line, you should try joining the voice channel. If you want a gif, add 'gif' to your message.";
           msg.reply(reply);
