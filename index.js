@@ -17,21 +17,20 @@ client.on("ready", () => {
 
 let isReady = true;
 
-client.on("message", msg => {
+client.on("message", (msg) => {
   if (msg.author == client.user) return;
   let match = content.filter(
-    obj =>
+    (obj) =>
       obj.keyword === msg.content.toLowerCase() ||
       msg.content.toLowerCase().includes(obj.keyword)
   );
-  console.log(match[0]);
 
   if (isReady && match[0] === undefined) {
     return;
   } else {
-    const noRepeats = category => {
+    const noRepeats = (category) => {
       let copyArray = [...category];
-      return function() {
+      return function () {
         if (copyArray.length < 1) {
           copyArray = category.slice(0);
         }
@@ -57,7 +56,7 @@ client.on("message", msg => {
         if (reply !== "") return;
         return;
       } else {
-        let voiceChannel = msg.member.voiceChannel;
+        let voiceChannel = msg.member.voice.channel;
         if (voiceChannel === undefined && match[0]) {
           reply =
             "Perhaps the archives are incomplete: If you want a voice line, you should try joining the voice channel. If you want a gif, add 'gif' to your message.";
@@ -68,13 +67,13 @@ client.on("message", msg => {
           isReady = false;
           voiceChannel
             .join()
-            .then(connection => {
-              const dispatcher = connection.playFile(voiceLineChooser());
-              dispatcher.on("end", end => {
+            .then((connection) => {
+              const dispatcher = connection.play(voiceLineChooser());
+              dispatcher.on("finish", () => {
                 isReady = true;
               });
             })
-            .catch(err => console.log(err));
+            .catch((err) => console.log(err));
         }
       }
     }
