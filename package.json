@@ -1,36 +1,36 @@
 {
-  "name": "whiteknights",
-  "version": "1.0.0",
-  "description": "Star Wars memes for the incels",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "server": "nodemon index.js",
-    "start": "node index.js"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/jacobhatfield/whiteknights.git"
-  },
-  "author": "Jacob Hatfield, Jordan Kilburn",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/jacobhatfield/whiteknights/issues"
-  },
-  "homepage": "https://github.com/jacobhatfield/whiteknights#readme",
-  "dependencies": {
-    "@discordjs/opus": "^0.3.2",
-    "axios": "^0.19.0",
-    "config": "^3.2.4",
-    "discord.js": "^12.2.0",
-    "express": "^4.17.1",
-    "ffmpeg": "0.0.4",
-    "opusscript": "0.0.7"
-  },
-  "devDependencies": {
-    "nodemon": "^1.19.4"
-  },
-  "engines": {
-    "node": "12.x"
-  }
+	"name": "star-wars-discord-bot",
+	"version": "1.0.0",
+	"description": "Star Wars memes for your Discord server",
+	"main": "dist/index.js",
+	"scripts": {
+		"start": "nodemon ./src/index.ts",
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"author": "Jake Hatfield",
+	"license": "CC",
+	"homepage": "https://github.com/jake-hatfield/star-wars-discord-bot#readme",
+	"dependencies": {
+		"@discordjs/opus": "^0.8.0",
+		"@discordjs/voice": "^0.11.0",
+		"axios": "^0.27.2",
+		"cross-env": "^7.0.3",
+		"discord.js": "^14.3.0",
+		"express": "^4.18.1",
+		"ffmpeg": "^0.0.4",
+		"rimraf": "^3.0.2",
+		"sodium-native": "^3.4.1"
+	},
+	"devDependencies": {
+		"@types/express": "^4.17.13",
+		"@types/node": "^18.7.15",
+		"concurrently": "^7.4.0",
+		"dotenv": "^16.0.2",
+		"nodemon": "^2.0.19",
+		"ts-node": "^10.9.1",
+		"typescript": "^4.8.2"
+	},
+	"engines": {
+		"node": "16.x"
+	}
 }
