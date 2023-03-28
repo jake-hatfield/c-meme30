@@ -1,5 +1,5 @@
 // packages
-import { ChatInputCommandInteraction } from 'discord.js';
+import { ChatInputCommandInteraction, InteractionResponse } from 'discord.js';
 import {
 	AudioPlayerStatus,
 	createAudioPlayer,
@@ -75,7 +75,9 @@ export const handleVoiceConnection = async (
 	// create the connection
 	const connection = await connectToChannel(interaction);
 
-	if (!connection) return;
+	const typeGuardConnection = () => {};
+
+	if (!connection || connection instanceof InteractionResponse) return;
 
 	// subscribe to the audio player
 	const subscription = connection.subscribe(player);
