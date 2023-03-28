@@ -20,5 +20,3 @@ A long time ago in a Node.js environment far, far away....
 - Node.js
 - Express.js
 - Discord.js
-- FFmpeg
-- Cyclic
