@@ -1,36 +1,53 @@
 // packages
 import { Client, GatewayIntentBits } from 'discord.js';
-import * as dotenv from 'dotenv';
-import express from 'express';
+import dotenv from 'dotenv';
+import express, { Express, Response, Request } from 'express';
+import 'module-alias/register';
 
 // env
 dotenv.config();
 
 // lib
-import ready from './lib/ready';
-import interactionCreate from './lib/interactions/create';
+import interactionCreate from '@lib/interactions/create';
+import ready from '@lib/ready';
+import registerCommands from '@lib/commands/register';
 
-// types
-import type { Request, Response } from 'express';
-import registerCommands from './lib/commands/register';
+const title = 'C-Meme-30';
 
-// initialize server
-const app = express();
+// server
+const app: Express = express();
+const port = process.env.PORT;
+
+// routes
 app.get('/', (req: Request, res: Response) => {
-	res.send('Hello there');
+	try {
+		res.send(`${title} is up and running`);
+	} catch (error) {
+		console.log(error);
+		return res.status(500).send(`Something went wrong with ${title}`);
+	}
 });
 
 // initialize Discord client
 const client = new Client({
-	intents: [GatewayIntentBits.Guilds],
+	intents: [
+		GatewayIntentBits.Guilds,
+		GatewayIntentBits.GuildMessages,
+		GatewayIntentBits.GuildVoiceStates,
+	],
 });
 
+// client ready up
 ready(client);
 
+// register the slash commands
 registerCommands();
 
+// handle interactions
 interactionCreate(client);
 
 client.login(process.env.DISCORD_TOKEN);
 
-app.listen(process.env.PORT || 3000);
+app.listen(port || 3000, () => {
+	console.log(`[server]: ${title} is running @ port ${port}`);
+});

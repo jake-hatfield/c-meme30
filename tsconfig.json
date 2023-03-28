@@ -2,8 +2,8 @@
 	"compilerOptions": {
 		"target": "ESNext",
 		"module": "commonjs",
-		"rootDir": "./src/",
-		"outDir": "./dist/",
+		"rootDir": "./src",
+		"outDir": "./dist",
 		"strict": true,
 		"moduleResolution": "node",
 		"importHelpers": true,
@@ -15,10 +15,13 @@
 		"forceConsistentCasingInFileNames": true,
 		"removeComments": true,
 		"typeRoots": ["node_modules/@types"],
-		"sourceMap": false,
-		"baseUrl": "./"
+		"sourceMap": true,
+		"baseUrl": "./src",
+		"paths": {
+			"@lib/*": ["lib/*"],
+			"@sound-effects/*": ["lib/sound-effects/*"]
+		}
 	},
-	"files": ["src/index.ts"],
 	"include": ["./**/*.ts"],
-	"exclude": ["node_modules", "dist"]
+	"exclude": ["node_modules"]
 }

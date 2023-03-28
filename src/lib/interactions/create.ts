@@ -2,12 +2,14 @@
 import { ChatInputCommandInteraction, Client, Interaction } from 'discord.js';
 
 // lib
-import commands from '../commands/index';
+import commands from '@lib/commands';
 
 export default (client: Client): void => {
 	client.on('interactionCreate', async (interaction: Interaction) => {
+		// if not a chat command, return
 		if (!interaction.isChatInputCommand()) return;
 
+		// if it is a command, use the slash command handler
 		if (interaction.isCommand()) {
 			await handleSlashCommand(client, interaction);
 		}
@@ -21,11 +23,11 @@ const handleSlashCommand = async (
 	const slashCommand = commands.find((c) => c.name === interaction.commandName);
 
 	if (!slashCommand) {
-		interaction.followUp({ content: 'Bleep bloop. I am a dumb robot 🤖' });
+		await interaction.followUp({
+			content: 'Bleep bloop. I am a dumb robot 🤖',
+		});
 		return;
 	}
-
-	await interaction.deferReply();
 
 	slashCommand.run(client, interaction);
 };

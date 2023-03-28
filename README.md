@@ -13,3 +13,12 @@ A long time ago in a Node.js environment far, far away....
 - This droid can partake in this civil discussion when younglings preface their text command with the special character "/"
 
 - What remains to be seen is if the council enjoys MemeDroid as much as my friends and I did...
+
+## Tech stack
+
+- TypeScript
+- Node.js
+- Express.js
+- Discord.js
+- FFmpeg
+- Cyclic
