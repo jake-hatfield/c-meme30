@@ -1,6 +1,6 @@
 A long time ago in a Node.js environment far, far away....
 
-# Episode I: The Rise of MemeDroid
+# Episode I: The Rise of C-Meme-30
 
 - Your Discord server is in trouble!
 
@@ -8,7 +8,7 @@ A long time ago in a Node.js environment far, far away....
 
 - Meanwhile, nerdy Star Wars fanboy content is not anywhere to be found.
 
-- However, the balance of cringe is restored when MemeDroid is [dispatched to your server](https://discordapp.com/oauth2/authorize?&client_id=641348914343051282&scope=bot&permissions=66078976).
+- However, the balance of cringe is restored when C-Meme-30 is [dispatched to your server](https://discordapp.com/oauth2/authorize?&client_id=641348914343051282&scope=bot&permissions=66078976).
 
 - This droid can partake in this civil discussion when younglings preface their text command with the special character "/"
 

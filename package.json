@@ -1,11 +1,11 @@
 {
-	"name": "star-wars-discord-bot",
+	"name": "c-meme-30",
 	"version": "1.0.0",
 	"description": "Star Wars memes for your Discord server",
 	"main": "./dist/index.ts",
 	"author": "Jake Hatfield",
 	"license": "CC",
-	"homepage": "https://github.com/jake-hatfield/star-wars-discord-bot#readme",
+	"homepage": "https://github.com/jake-hatfield/c-meme-30#readme",
 	"scripts": {
 		"build": "npx tsc",
 		"start": "node dist/index.js",
