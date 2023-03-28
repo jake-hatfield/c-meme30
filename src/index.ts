@@ -12,7 +12,7 @@ import interactionCreate from '@lib/interactions/create';
 import ready from '@lib/ready';
 import registerCommands from '@lib/commands/register';
 
-const title = 'C-Meme-30';
+const title = 'C-Meme30';
 
 // server
 const app: Express = express();
