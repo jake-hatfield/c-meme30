@@ -50,6 +50,7 @@ const connectToChannel = async (interaction: ChatInputCommandInteraction) => {
 	const connection = joinVoiceChannel({
 		channelId: channel.id,
 		guildId: channel.guild.id,
+		// @ts-ignore
 		adapterCreator: channel.guild.voiceAdapterCreator,
 	});
 
@@ -74,8 +75,6 @@ export const handleVoiceConnection = async (
 
 	// create the connection
 	const connection = await connectToChannel(interaction);
-
-	const typeGuardConnection = () => {};
 
 	if (!connection || connection instanceof InteractionResponse) return;
 
