@@ -46,4 +46,4 @@ Once installed in your Discord server using the link above 👆, you can join a 
 - Node.js
 - Express.js
 - Discord.js
-- Raleway
+- Railway

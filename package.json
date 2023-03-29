@@ -12,8 +12,7 @@
 		"dev": "concurrently \"npx tsc --watch\" \"nodemon -q dist/index.js\""
 	},
 	"_moduleAliases": {
-		"@lib": "dist/lib",
-		"@sound-effects": "dist/lib/sound-effects"
+		"@lib": "dist/lib"
 	},
 	"dependencies": {
 		"@discordjs/opus": "^0.8.0",

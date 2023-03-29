@@ -18,8 +18,7 @@
 		"sourceMap": true,
 		"baseUrl": "./src",
 		"paths": {
-			"@lib/*": ["lib/*"],
-			"@sound-effects/*": ["lib/sound-effects/*"]
+			"@lib/*": ["lib/*"]
 		}
 	},
 	"include": ["./**/*.ts"],
