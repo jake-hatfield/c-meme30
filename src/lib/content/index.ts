@@ -1,7 +1,3 @@
-// packages
-import fs from 'fs';
-import path from 'path';
-
 const anakinVoiceLines = [
 	'anakin/enter-my-pod.mp3',
 	'anakin/this-is-tense.mp3',
