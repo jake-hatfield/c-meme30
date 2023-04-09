@@ -23,7 +23,7 @@ const handleSlashCommand = async (
 	const slashCommand = commands.find((c) => c.name === interaction.commandName);
 
 	if (!slashCommand) {
-		await interaction.followUp({
+		await interaction.reply({
 			content: 'Bleep bloop. I am a dumb robot 🤖',
 		});
 		return;
