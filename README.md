@@ -1,6 +1,6 @@
 A long time ago in a Node.js environment far, far away....
 
-# Episode I: The Rise of C-Meme30
+# 🎞️ Episode I: The Rise of C-Meme30
 
 - Your Discord server is in trouble!
 
@@ -14,11 +14,11 @@ A long time ago in a Node.js environment far, far away....
 
 - What remains to be seen is if the council enjoys C-Meme30 as much as my friends and I did...
 
-## Usage
+## ⚒️ Usage
 
 Once installed in your Discord server using the link above 👆, you can join a voice channel and play voice lines with slash commands.
 
-### Specific character's lines
+### 🎭 Specific character's lines
 
 - `/anakin`
 - `/yoda`
@@ -30,17 +30,17 @@ Once installed in your Discord server using the link above 👆, you can join a 
 - `/trade`
 - `/jar-jar`
 
-### Specific lines
+### 🔬 Specific lines
 
 - `/working`
 - `/die`
 - `/good`
 
-### Random lines
+### 🎲 Random lines
 
 - `/random`
 
-## Tech stack
+## 🧑‍💻 Tech stack
 
 - TypeScript
 - Node.js
