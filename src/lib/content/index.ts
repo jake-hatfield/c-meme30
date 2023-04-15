@@ -544,6 +544,16 @@ export default [
 		content: jarJarContent,
 	},
 	{
+		name: 'meesa-back',
+		description: `👋 (1)`,
+		content: [
+			{
+				voice: 'jar-jar/meesa-back.mp3',
+				text: '```> meesa back!```',
+			},
+		],
+	},
+	{
 		name: 'working',
 		description: `🏁 (1)`,
 		content: [
